@@ -20,6 +20,7 @@ import { GeoLocComponent } from './geo-loc/geo-loc.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    GeoLocComponent,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
