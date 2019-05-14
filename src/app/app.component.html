@@ -11,4 +11,21 @@
 </mat-toolbar>
 
 <!-- Inicio do SIDENAV -->
+<mat-sidenav-container class="sidenav-container">
 
+    <mat-sidenav class="mat-elevation-z10" #start [opened]="open" fixedTopGap="64" [mode]="mode" fixedInViewport="true" style="width:240px;">
+
+        <!-- Alterar o (click)="start.toggle()" para linkar com a geolocalização -->
+        <button (click)="start.toggle()" mat-raised-button>
+            Geolocalização           
+        </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="margin-top:64px;">
+        <div style="margin: 10px;">
+            <router-outlet></router-outlet>
+        </div>
+        <div style="height: 64px;"></div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
