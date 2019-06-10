@@ -8,19 +8,22 @@ import { MaterialModule } from './material/material.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GeoLocComponent } from './geo-loc/geo-loc.component';
-
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MatSidenavModule, MatToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeoLocComponent
+    GeoLocComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    GeoLocComponent,
+    MatSidenavModule,
+    MatToolbarModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

@@ -16,7 +16,7 @@ export class GeoLocService {
     });
   }
 
-  distancia(lat1: number, lon1: number, lat2: number, lon2: number,    unit: string = 'K'): number {
+  distancia(lat1: number, lon1: number, lat2: number, lon2: number, unit: string = 'K'): number {
     if ((lat1 === lat2) && (lon1 === lon2)) {
       return 0;
     } else {
