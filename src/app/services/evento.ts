@@ -3,7 +3,7 @@ export class Evento {
     public nome_evento: string
 
     constructor(){
-        this.cod_evento = ""
-        this.nome_evento = ""
+        this.cod_evento = "0001"
+        this.nome_evento = "techweek"
     }
 }

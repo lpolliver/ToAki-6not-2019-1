@@ -1,4 +1,4 @@
-export class Usuario {
+export class Oficina {
     public cod_oficina: string
     public nome_oficina: string
     public local_oficina: string
@@ -9,13 +9,13 @@ export class Usuario {
     public inter_fim: string
 
     constructor(){
-        this.cod_oficina = ""
-        this.nome_oficina = ""
-        this.local_oficina = ""
-        this.nome_instrut = ""
-        this.dt_inicio = ""
-        this.dt_fim = ""
-        this.inter_inicio = ""
-        this.inter_fim = ""
+        this.cod_oficina = " 0001"
+        this.nome_oficina = "Palestra de Angular"
+        this.local_oficina = "Lab. III"
+        this.nome_instrut = "Prof. Fausto"
+        this.dt_inicio = "23/05/2019"
+        this.dt_fim = "23/05/2019"
+        this.inter_inicio = "15 min."
+        this.inter_fim = "15 min."
     }
 }
