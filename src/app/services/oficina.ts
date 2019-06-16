@@ -13,8 +13,8 @@ export class Oficina {
         this.nome_oficina = "Palestra de Angular"
         this.local_oficina = "Lab. III"
         this.nome_instrut = "Prof. Fausto"
-        this.dt_inicio = "23/05/2019"
-        this.dt_fim = "23/05/2019"
+        this.dt_inicio = "23/05/2019 10:00:00"
+        this.dt_fim = "23/05/2019 11:30:00"
         this.inter_inicio = "15 min."
         this.inter_fim = "15 min."
     }
