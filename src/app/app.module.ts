@@ -10,12 +10,14 @@ import { environment } from '../environments/environment';
 import { GeoLocComponent } from './geo-loc/geo-loc.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { LeitorQrCodeComponent } from './leitor-qr-code/leitor-qr-code.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeoLocComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    LeitorQrCodeComponent
   ],
   imports: [
     BrowserModule,
