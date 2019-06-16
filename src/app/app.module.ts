@@ -11,6 +11,7 @@ import { GeoLocComponent } from './geo-loc/geo-loc.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { LeitorQrCodeComponent } from './leitor-qr-code/leitor-qr-code.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LeitorQrCodeComponent } from './leitor-qr-code/leitor-qr-code.component
     MaterialModule,
     MatSidenavModule,
     MatToolbarModule,
+    ZXingScannerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
