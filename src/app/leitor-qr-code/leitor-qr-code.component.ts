@@ -6,6 +6,8 @@ import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 
 import { Result } from '@zxing/library';
 
+import { EventoService } from '../services/evento.service';
+
 @Component({
   selector: 'app-leitor-qr-code',
   templateUrl: './leitor-qr-code.component.html',
@@ -62,6 +64,12 @@ export class LeitorQrCodeComponent implements OnInit {
     // console.debug('Result: ', resultString);
     this.qrResultString = resultString;
     this.snackBar.open(resultString, '', {duration: 2000});
+    if(resultString === EventoService.name){
+      this.snackBar.open('Deu certo', '', {duration: 5000});
+    }else{
+      this.snackBar.open('Deu ruim', '', {duration: 5000});
+
+    }
     this.beep(100, 520, 200);
     this.location.back();
   }
