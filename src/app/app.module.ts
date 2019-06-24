@@ -12,13 +12,15 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { LeitorQrCodeComponent } from './leitor-qr-code/leitor-qr-code.component';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { EventoComponent } from './evento/evento.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeoLocComponent,
     ToolbarComponent,
-    LeitorQrCodeComponent
+    LeitorQrCodeComponent,
+    EventoComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ export class Oficina {
     public inter_fim: string
 
     constructor(){
-        this.cod_oficina = " 0001"
+        this.cod_oficina = "001"
         this.nome_oficina = "Palestra de Angular"
         this.local_oficina = "Lab. III"
         this.nome_instrut = "Prof. Fausto"
