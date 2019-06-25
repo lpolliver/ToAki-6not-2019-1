@@ -18,5 +18,18 @@ export class EventoComponent implements OnInit {
     } catch (e) {
       console.error(e);
     }
+
+    try {
+      for (let i=0; i < this.oficinas.length; i++){
+        this.oficinas[i].dt_inicio = this.oficinas[i].dt_inicio.slice(6,8) + "/" +
+                                     this.oficinas[i].dt_inicio.slice(4,6) + "/" +
+                                     this.oficinas[i].dt_inicio.slice(0,4) + " " +
+                                     this.oficinas[i].dt_inicio.slice(9,11) + ":" +
+                                     this.oficinas[i].dt_inicio.slice(12,14);
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
+
 }

@@ -103,12 +103,12 @@ export class LeitorQrCodeComponent implements OnInit {
     if(achou == 0){
       this.snackBar.open('Oficina não encontrada.', '', {duration: 3000});
     }
+    this.beep(100, 520, 200);
     this.location.back();
 
   }
     // this.snackBar.open(resultString, '', {duration: 2000});
 
-    // this.beep(100, 520, 200);
 
   onDeviceSelectChange(selected: string) {
     // console.debug('Selection changed: ', selected);
