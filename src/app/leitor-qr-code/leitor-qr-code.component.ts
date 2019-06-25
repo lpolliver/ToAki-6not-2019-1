@@ -20,7 +20,7 @@ export class LeitorQrCodeComponent implements OnInit {
   @ViewChild('scanner')
   scanner: ZXingScannerComponent;
 
-  constructor(private snackBar: MatSnackBar, private location: Location) {}
+  constructor(private snackBar: MatSnackBar, private location: Location, private eventoSrv: EventoService) {}
 
   hasDevices: boolean;
   hasPermission: boolean;
@@ -31,6 +31,8 @@ export class LeitorQrCodeComponent implements OnInit {
   currentDevice: MediaDeviceInfo;
 
   a = new AudioContext();
+
+  oficinas : any = [];
 
   ngOnInit(): void {
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
@@ -53,6 +55,14 @@ export class LeitorQrCodeComponent implements OnInit {
     // this.scanner.camerasNotFound.subscribe(() => this.hasDevices = false);
     this.scanner.scanComplete.subscribe((x: Result) => this.qrResult = x);
     this.scanner.permissionResponse.subscribe((x: boolean) => this.hasPermission = x);
+
+    try {
+      this.oficinas = this.eventoSrv.listaEvento();
+      console.log(this.oficinas);
+    } catch (e) {
+      console.error(e);
+    }
+
   }
 
   displayCameras(cameras: MediaDeviceInfo[]) {
@@ -63,16 +73,42 @@ export class LeitorQrCodeComponent implements OnInit {
   handleQrCodeResult(resultString: string) {
     // console.debug('Result: ', resultString);
     this.qrResultString = resultString;
-    this.snackBar.open(resultString, '', {duration: 2000});
-    if(resultString === EventoService.name){
-      this.snackBar.open('Deu certo', '', {duration: 5000});
-    }else{
-      this.snackBar.open('Deu ruim', '', {duration: 5000});
-
+    console.log(resultString);
+    let oficinaLida = JSON.parse(resultString);
+    let leitura = new Date();
+    let achou = 0;
+    for (let i=0; i < this.oficinas.length; i++){
+      if (this.oficinas[i].cod_oficina == oficinaLida.cod_oficina){
+        let iniOficina = new Date(this.oficinas[i].dt_inicio.slice(0,4),
+                                  (this.oficinas[i].dt_inicio.slice(4,6)-1),
+                                  this.oficinas[i].dt_inicio.slice(6,8),
+                                  this.oficinas[i].dt_inicio.slice(9,11),
+                                  this.oficinas[i].dt_inicio.slice(12,14));
+        let fimOficina = new Date(this.oficinas[i].dt_fim.slice(0,4),
+                                  (this.oficinas[i].dt_fim.slice(4,6)-1),
+                                  this.oficinas[i].dt_fim.slice(6,8),
+                                  this.oficinas[i].dt_fim.slice(9,11),
+                                  this.oficinas[i].dt_fim.slice(12,14));
+        iniOficina.setMinutes(iniOficina.getMinutes()-(parseInt(this.oficinas[i].inter_inicio)));
+        fimOficina.setMinutes(fimOficina.getMinutes()+(parseInt(this.oficinas[i].inter_fim)));
+        achou = 1;
+        if(leitura >= iniOficina && leitura <= fimOficina){
+          this.snackBar.open('Leitura com sucesso!', '', {duration: 3000});
+        }
+        else{
+          this.snackBar.open('Fora do prazo de leitura.', '', {duration: 3000});
+        }
+      }
     }
-    this.beep(100, 520, 200);
+    if(achou == 0){
+      this.snackBar.open('Oficina não encontrada.', '', {duration: 3000});
+    }
     this.location.back();
+
   }
+    // this.snackBar.open(resultString, '', {duration: 2000});
+
+    // this.beep(100, 520, 200);
 
   onDeviceSelectChange(selected: string) {
     // console.debug('Selection changed: ', selected);

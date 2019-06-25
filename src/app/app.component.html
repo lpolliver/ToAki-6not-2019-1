@@ -4,7 +4,7 @@
     <button mat-icon-button (click)="start.toggle()" class="icon-padding">
         <mat-icon aria-hidden="true">menu</mat-icon>
     </button>
-    <button mat-button routerLink="/"><strong>{{title}}</strong></button>
+    <button mat-button (click)="start.close()" routerLink="/"><strong>{{title}}</strong></button>
 
     <span class="fill-remaining-space"></span>
    
@@ -13,20 +13,21 @@
 <!-- Inicio do SIDENAV -->
 <mat-sidenav-container class="sidenav-container">
 
-    <mat-sidenav class="mat-elevation-z10" #start [opened]="open" fixedTopGap="64" [mode]="mode" fixedInViewport="true" style="width:240px;">
+    <mat-sidenav class="mat-elevation-z10" #start [opened]="open" (click)="start.toggle()" fixedTopGap="64" [mode]="mode" fixedInViewport="true" style="width:240px;" autoFocus="false">
 
         
-        <button (click)="start.toggle()" mat-raised-button [routerLink]="['geo-loc']" style="width:240px; text-align:center;">
+        <button mat-raised-button color="primary" [routerLink]="['evento']" style="width:240px; text-align:center;">
+            Eventos         
+        </button>
+        <br>
+        <button mat-raised-button color="primary" [routerLink]="['geo-loc']" style="width:240px; text-align:center;">
             Check-in           
         </button>
         <br>
-        <button (click)="start.toggle()" mat-raised-button [routerLink]="['leitor-qr-code']" style="width:240px; text-align:center;">
+        <button mat-raised-button id="btnQR" disabled="true" color="primary" [routerLink]="['leitor-qr-code']" style="width:240px; text-align:center;">
             Leitor QR-Code         
         </button>
-        <br>
-        <button (click)="start.toggle()" mat-raised-button [routerLink]="['evento']" style="width:240px; text-align:center;">
-            Eventos         
-        </button>
+        
     </mat-sidenav>
 
     <mat-sidenav-content style="margin-top:64px;">

@@ -12,10 +12,10 @@
 
   <zxing-scanner #scanner [(device)]="currentDevice" (scanSuccess)="handleQrCodeResult($event)" [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>
 
-  <section class="results" *ngIf="qrResultString">
+  <!-- <section class="results" *ngIf="qrResultString">
     <small>Resultado</small>
     <strong>{{ qrResultString }}</strong>
-  </section>
+  </section> -->
 
 </div>
 

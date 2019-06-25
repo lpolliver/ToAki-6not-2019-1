@@ -29,29 +29,29 @@ export class EventoService {
   public listaEvento(): Evento[]{
     return [
       {
-        cod_evento: "001",
-        nome_evento: "techweek",
-        cod_oficina: " 0001",
+        cod_evento: "E001",
+        nome_evento: "TechWeek",
+        cod_oficina: "001",
         nome_oficina: "Palestra de Angular",
         local_oficina: "Lab. III",
         nome_instrut: "Prof. Fausto",
-        dt_inicio: "23/05/2019 10:00:00",
-        dt_fim:"23/05/2019 11:30:00",
-        inter_inicio: "15 min.",
-        inter_fim: "15 min."
+        dt_inicio: "20190625 16:30",
+        dt_fim:"20190625 18:00",
+        inter_inicio: "15",
+        inter_fim: "15"
       },
 
       {
-        cod_evento: "001",
-        nome_evento: "techweek",
+        cod_evento: "E001",
+        nome_evento: "Techweek",
         cod_oficina: " 0002",
         nome_oficina: "Palestra de Node js",
         local_oficina: "Lab. III",
         nome_instrut: "Prof. Daniel",
-        dt_inicio: "23/05/2019 10:00:00",
-        dt_fim:"23/05/2019 11:30:00",
-        inter_inicio: "15 min.",
-        inter_fim: "15 min."
+        dt_inicio: "20190625 08:30",
+        dt_fim:"20190625 12:30",
+        inter_inicio: "15",
+        inter_fim: "15"
       }
   
     ]

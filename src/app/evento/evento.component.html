@@ -1,7 +1,23 @@
-<mat-list *ngFor="let i of oficinas" style="font-size: 12px;">
-  <mat-list-item><strong>Evento: </strong>{{ i.nome_evento }}</mat-list-item>
-  <mat-list-item><strong>Oficina: </strong>{{ i.nome_oficina }}</mat-list-item>
-  <mat-list-item><strong>Instrutor: </strong>{{ i.nome_instrut }}</mat-list-item>
-  <mat-list-item><strong>Local: </strong>{{ i.local_oficina }}</mat-list-item>
-  <mat-list-item><strong>Data/Horário: </strong>{{ i.dt_inicio }}</mat-list-item>
+<!-- <mat-list>
+  <p mat-line style="color: darkblue"><strong>Código da Oficina</strong></p>
+  </mat-list-item>
+  <mat-list-item>
+    <input matInput id="codInput" style="width:122px" placeholder="Digite o Código...">
+  </mat-list-item>
+  <mat-list-item>
+      <button mat-raised-button id="btnPesq" color="primary" style="width:125px; text-align:center;">
+      Pesquisar       
+      </button>
+</mat-list> -->
+
+<h3 style="color:darkslateblue; text-align: center">EVENTOS DISPONÍVEIS</h3>
+<mat-divider></mat-divider>
+<mat-list class="altura_linha" *ngFor="let i of oficinas" style="font-size: 12px;">
+  <mat-list-item style="color:darkslateblue"><strong>>>> Oficina {{ oficinas.indexOf(i, 0)+1 }}</strong></mat-list-item>
+  <mat-list-item><strong>Evento:&nbsp;</strong>{{ i.nome_evento }}</mat-list-item>
+  <mat-list-item><strong>Oficina:&nbsp;</strong>{{ i.nome_oficina }}</mat-list-item>
+  <mat-list-item><strong>Instrutor:&nbsp;</strong>{{ i.nome_instrut }}</mat-list-item>
+  <mat-list-item><strong>Local:&nbsp;</strong>{{ i.local_oficina }}</mat-list-item>
+  <mat-list-item><strong>Data/Horário:&nbsp;</strong>{{ i.dt_inicio }}</mat-list-item><br>
+  <mat-divider></mat-divider>
 </mat-list>
